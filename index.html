@@ -362,74 +362,93 @@ function scColor(sc){
 
 // ─── Static fallback data (dùng khi API không trả về) ────────────────────────
 const FALLBACK = {
-  VCB:{price:89400,change_pct:0.82,pe:14.2,pb:2.8,roe:21,eps:6280,volume:3200000},
-  BID:{price:47500,change_pct:0.45,pe:11.5,pb:2.1,roe:18,eps:4130,volume:5100000},
-  CTG:{price:38200,change_pct:-0.52,pe:9.8,pb:1.7,roe:16,eps:3900,volume:4800000},
-  MBB:{price:26100,change_pct:1.16,pe:7.2,pb:1.5,roe:22,eps:3620,volume:8900000},
-  TCB:{price:52300,change_pct:0.77,pe:8.9,pb:1.8,roe:19,eps:5880,volume:4200000},
-  VPB:{price:21400,change_pct:-0.93,pe:8.1,pb:1.2,roe:14,eps:2640,volume:12000000},
-  ACB:{price:24600,change_pct:1.24,pe:7.8,pb:1.6,roe:22,eps:3150,volume:9800000},
-  HDB:{price:22100,change_pct:0.46,pe:7.5,pb:1.4,roe:19,eps:2950,volume:7200000},
-  STB:{price:34500,change_pct:0.88,pe:9.1,pb:1.5,roe:15,eps:3790,volume:11000000},
-  LPB:{price:18200,change_pct:1.11,pe:7.3,pb:1.3,roe:17,eps:2490,volume:14000000},
-  HPG:{price:27500,change_pct:1.47,pe:11.3,pb:1.9,roe:17,eps:2430,volume:18000000},
-  NKG:{price:16800,change_pct:2.13,pe:9.2,pb:1.4,roe:15,eps:1820,volume:6500000},
-  HSG:{price:14200,change_pct:0.71,pe:8.7,pb:1.2,roe:13,eps:1630,volume:7800000},
-  VHM:{price:42100,change_pct:-0.47,pe:6.8,pb:2.4,roe:31,eps:6190,volume:3900000},
-  VIC:{price:52800,change_pct:-0.19,pe:28.5,pb:3.2,roe:11,eps:1850,volume:2800000},
-  NVL:{price:8200,change_pct:-3.53,pe:0,pb:0.7,roe:-8,eps:-657,volume:22000000},
-  PDR:{price:9800,change_pct:-1.01,pe:15.2,pb:1.1,roe:7,eps:644,volume:9200000},
-  KDH:{price:28400,change_pct:0.35,pe:16.1,pb:2.1,roe:13,eps:1763,volume:3100000},
-  SSI:{price:28400,change_pct:1.79,pe:13.8,pb:1.9,roe:14,eps:2060,volume:11000000},
-  VND:{price:17500,change_pct:1.45,pe:12.1,pb:1.6,roe:13,eps:1450,volume:14000000},
-  HCM:{price:22100,change_pct:0.91,pe:10.9,pb:1.7,roe:15,eps:2030,volume:6800000},
-  VCI:{price:34500,change_pct:2.38,pe:11.2,pb:2.1,roe:19,eps:3080,volume:5600000},
-  GAS:{price:82400,change_pct:0.37,pe:16.4,pb:3.1,roe:19,eps:5020,volume:1200000},
-  PVD:{price:22800,change_pct:2.25,pe:14.7,pb:1.4,roe:10,eps:1550,volume:4500000},
-  PLX:{price:38500,change_pct:0.52,pe:18.2,pb:2.3,roe:13,eps:2115,volume:2100000},
-  PVT:{price:19600,change_pct:1.03,pe:9.8,pb:1.3,roe:13,eps:2000,volume:3400000},
-  POW:{price:12800,change_pct:0.79,pe:10.4,pb:0.9,roe:9,eps:1230,volume:8900000},
-  MWG:{price:68500,change_pct:2.24,pe:18.3,pb:4.2,roe:23,eps:3740,volume:2100000},
-  MSN:{price:72300,change_pct:0.56,pe:31.2,pb:3.8,roe:12,eps:2320,volume:1900000},
-  VNM:{price:74100,change_pct:0.41,pe:17.6,pb:4.1,roe:23,eps:4210,volume:1500000},
-  SAB:{price:58200,change_pct:0.17,pe:21.4,pb:4.6,roe:21,eps:2720,volume:620000},
-  FPT:{price:138000,change_pct:1.85,pe:22.5,pb:5.8,roe:26,eps:6130,volume:1800000},
-  CMG:{price:44200,change_pct:1.38,pe:18.9,pb:3.4,roe:18,eps:2340,volume:890000},
-  GMD:{price:58700,change_pct:0.86,pe:12.3,pb:2.1,roe:17,eps:4772,volume:1200000},
-  HAH:{price:42100,change_pct:1.20,pe:9.8,pb:1.8,roe:18,eps:4296,volume:890000},
-  VHC:{price:68200,change_pct:1.04,pe:8.1,pb:2.2,roe:27,eps:8420,volume:760000},
-  MPC:{price:28400,change_pct:0.71,pe:7.2,pb:1.4,roe:19,eps:3944,volume:1100000},
-  ANV:{price:22500,change_pct:0.45,pe:6.8,pb:1.3,roe:19,eps:3309,volume:1400000},
-  REE:{price:58900,change_pct:0.68,pe:9.4,pb:1.7,roe:18,eps:6266,volume:980000},
-  DCM:{price:16800,change_pct:1.20,pe:7.9,pb:1.4,roe:17,eps:2127,volume:5600000},
-  DPM:{price:31200,change_pct:0.97,pe:8.2,pb:1.5,roe:18,eps:3805,volume:2300000},
-  SHB:{price:13200,change_pct:0.76,pe:6.2,pb:1.1,roe:17,eps:2130,volume:16000000},
-  VIB:{price:18900,change_pct:0.53,pe:7.1,pb:1.4,roe:21,eps:2662,volume:6700000},
-  TPB:{price:16400,change_pct:0.61,pe:6.8,pb:1.2,roe:18,eps:2412,volume:8900000},
-  SSB:{price:22100,change_pct:0.91,pe:8.4,pb:1.6,roe:19,eps:2631,volume:5400000},
-  BCM:{price:67200,change_pct:0.30,pe:22.1,pb:3.8,roe:17,eps:3040,volume:420000},
-  GVR:{price:14800,change_pct:0.68,pe:18.5,pb:1.6,roe:9,eps:800,volume:3200000},
-  VJC:{price:98400,change_pct:-0.71,pe:24.3,pb:4.1,roe:17,eps:4050,volume:1100000},
-  VRE:{price:28700,change_pct:0.35,pe:19.2,pb:2.4,roe:12,eps:1495,volume:3800000},
-  BVH:{price:52100,change_pct:0.19,pe:28.4,pb:2.8,roe:10,eps:1835,volume:680000},
-  IDC:{price:41200,change_pct:1.23,pe:11.4,pb:1.9,roe:17,eps:3614,volume:2100000},
-  KBC:{price:22800,change_pct:0.88,pe:14.2,pb:1.4,roe:10,eps:1606,volume:4500000},
-  VGC:{price:21500,change_pct:0.47,pe:12.8,pb:1.7,roe:13,eps:1680,volume:3200000},
-  EVF:{price:14200,change_pct:0.71,pe:9.1,pb:1.1,roe:12,eps:1560,volume:5800000},
-  CTD:{price:58900,change_pct:1.37,pe:11.2,pb:1.4,roe:13,eps:5259,volume:780000},
-  PPC:{price:22400,change_pct:0.45,pe:8.7,pb:1.2,roe:14,eps:2575,volume:1900000},
-  SCS:{price:148000,change_pct:0.68,pe:14.3,pb:5.2,roe:36,eps:10350,volume:320000},
+  // Ngân hàng
+  VCB:{price:88600,change_pct:0.45,pe:13.8,pb:2.7,roe:21,eps:6420,volume:3100000},
+  BID:{price:46200,change_pct:0.22,pe:11.1,pb:2.0,roe:18,eps:4160,volume:5300000},
+  CTG:{price:37800,change_pct:-0.26,pe:9.5,pb:1.7,roe:16,eps:3980,volume:4900000},
+  MBB:{price:25800,change_pct:0.78,pe:7.0,pb:1.5,roe:22,eps:3690,volume:9200000},
+  TCB:{price:51200,change_pct:0.59,pe:8.6,pb:1.7,roe:20,eps:5950,volume:4400000},
+  VPB:{price:20900,change_pct:-0.48,pe:7.9,pb:1.2,roe:15,eps:2650,volume:12500000},
+  ACB:{price:24200,change_pct:0.83,pe:7.5,pb:1.6,roe:23,eps:3230,volume:10100000},
+  HDB:{price:21800,change_pct:0.46,pe:7.2,pb:1.4,roe:20,eps:3030,volume:7400000},
+  STB:{price:33900,change_pct:0.59,pe:8.8,pb:1.5,roe:16,eps:3850,volume:11500000},
+  LPB:{price:40200,change_pct:0.75,pe:9.2,pb:1.6,roe:17,eps:4370,volume:18000000},
+  VIB:{price:18600,change_pct:0.54,pe:6.9,pb:1.4,roe:21,eps:2700,volume:6900000},
+  TPB:{price:16100,change_pct:0.62,pe:6.6,pb:1.2,roe:18,eps:2440,volume:9100000},
+  SSB:{price:21800,change_pct:0.92,pe:8.2,pb:1.6,roe:20,eps:2660,volume:5600000},
+  SHB:{price:13000,change_pct:0.77,pe:6.0,pb:1.1,roe:17,eps:2170,volume:16500000},
+  // Thép
+  HPG:{price:26800,change_pct:1.13,pe:10.9,pb:1.8,roe:17,eps:2460,volume:19000000},
+  NKG:{price:16500,change_pct:1.85,pe:8.9,pb:1.3,roe:15,eps:1855,volume:6800000},
+  HSG:{price:13900,change_pct:0.72,pe:8.4,pb:1.2,roe:13,eps:1655,volume:8100000},
+  // Bất động sản
+  VHM:{price:40800,change_pct:-0.49,pe:6.6,pb:2.3,roe:31,eps:6180,volume:4100000},
+  VIC:{price:51400,change_pct:-0.19,pe:27.8,pb:3.1,roe:11,eps:1850,volume:2900000},
+  NVL:{price:10200,change_pct:-1.93,pe:0,pb:0.8,roe:-5,eps:-510,volume:24000000},
+  PDR:{price:13500,change_pct:0.75,pe:18.1,pb:1.4,roe:8,eps:746,volume:9800000},
+  KDH:{price:27800,change_pct:0.36,pe:15.6,pb:2.0,roe:13,eps:1782,volume:3300000},
+  IDC:{price:40500,change_pct:1.25,pe:11.2,pb:1.9,roe:17,eps:3616,volume:2200000},
+  KBC:{price:22400,change_pct:0.90,pe:13.9,pb:1.4,roe:10,eps:1612,volume:4700000},
+  BCM:{price:66500,change_pct:0.30,pe:21.8,pb:3.7,roe:17,eps:3050,volume:440000},
+  // Chứng khoán
+  SSI:{price:27800,change_pct:1.46,pe:13.4,pb:1.8,roe:14,eps:2075,volume:11500000},
+  VND:{price:17100,change_pct:1.18,pe:11.8,pb:1.5,roe:13,eps:1449,volume:14500000},
+  HCM:{price:21600,change_pct:0.93,pe:10.6,pb:1.7,roe:16,eps:2038,volume:7100000},
+  VCI:{price:33800,change_pct:2.11,pe:10.9,pb:2.0,roe:19,eps:3101,volume:5900000},
+  // Dầu khí
+  GAS:{price:80600,change_pct:0.25,pe:16.0,pb:3.0,roe:19,eps:5038,volume:1300000},
+  PVD:{price:22300,change_pct:1.82,pe:14.3,pb:1.4,roe:10,eps:1559,volume:4700000},
+  PLX:{price:37800,change_pct:0.53,pe:17.8,pb:2.2,roe:13,eps:2124,volume:2200000},
+  PVT:{price:19200,change_pct:1.05,pe:9.5,pb:1.3,roe:13,eps:2021,volume:3600000},
+  POW:{price:12500,change_pct:0.81,pe:10.1,pb:0.9,roe:9,eps:1238,volume:9200000},
+  // Bán lẻ
+  MWG:{price:67200,change_pct:1.97,pe:17.9,pb:4.1,roe:23,eps:3754,volume:2200000},
+  // Tiêu dùng
+  MSN:{price:70800,change_pct:0.57,pe:30.5,pb:3.7,roe:12,eps:2321,volume:2000000},
+  VNM:{price:72600,change_pct:0.42,pe:17.2,pb:4.0,roe:23,eps:4221,volume:1600000},
+  SAB:{price:57100,change_pct:0.18,pe:20.9,pb:4.5,roe:21,eps:2732,volume:650000},
+  // Công nghệ
+  FPT:{price:135000,change_pct:1.50,pe:22.0,pb:5.6,roe:26,eps:6136,volume:1900000},
+  CMG:{price:43300,change_pct:1.17,pe:18.5,pb:3.3,roe:18,eps:2341,volume:930000},
+  // Logistics
+  GMD:{price:57500,change_pct:0.87,pe:12.0,pb:2.1,roe:17,eps:4792,volume:1250000},
+  HAH:{price:41300,change_pct:1.22,pe:9.6,pb:1.8,roe:18,eps:4302,volume:930000},
+  SCS:{price:145000,change_pct:0.69,pe:14.0,pb:5.1,roe:36,eps:10357,volume:335000},
+  // Thủy sản
+  VHC:{price:66800,change_pct:1.06,pe:7.9,pb:2.1,roe:27,eps:8456,volume:790000},
+  MPC:{price:27800,change_pct:0.72,pe:7.0,pb:1.4,roe:19,eps:3971,volume:1150000},
+  ANV:{price:22100,change_pct:0.45,pe:6.6,pb:1.3,roe:19,eps:3348,volume:1450000},
+  // Năng lượng
+  REE:{price:57700,change_pct:0.70,pe:9.2,pb:1.7,roe:18,eps:6272,volume:1010000},
+  PPC:{price:21900,change_pct:0.46,pe:8.5,pb:1.2,roe:14,eps:2576,volume:1950000},
+  // Hóa chất
+  DCM:{price:16500,change_pct:1.23,pe:7.7,pb:1.4,roe:17,eps:2143,volume:5800000},
+  DPM:{price:30600,change_pct:0.99,pe:8.0,pb:1.5,roe:18,eps:3825,volume:2400000},
+  // Khác
+  GVR:{price:14500,change_pct:0.69,pe:18.1,pb:1.6,roe:9,eps:801,volume:3300000},
+  VJC:{price:96400,change_pct:-0.72,pe:23.8,pb:4.0,roe:17,eps:4050,volume:1150000},
+  VRE:{price:28100,change_pct:0.36,pe:18.8,pb:2.4,roe:12,eps:1495,volume:3900000},
+  BVH:{price:51000,change_pct:0.20,pe:27.8,pb:2.7,roe:10,eps:1835,volume:700000},
+  VGC:{price:21100,change_pct:0.48,pe:12.5,pb:1.7,roe:13,eps:1688,volume:3300000},
+  EVF:{price:13900,change_pct:0.72,pe:8.9,pb:1.1,roe:12,eps:1562,volume:6000000},
+  CTD:{price:57700,change_pct:1.40,pe:10.9,pb:1.4,roe:13,eps:5294,volume:800000},
 };
 
 // ─── API Fetcher — dùng TCBS trực tiếp (có CORS header) ──────────────────────
+// ─── Proxy URL ────────────────────────────────────────────────────────────────
+const PROXY = 'https://vn-proxy.phuongtran3788.workers.dev/proxy?url=';
+
+async function proxyGet(url) {
+  const r = await fetch(PROXY + encodeURIComponent(url), {signal: AbortSignal.timeout(12000)});
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}
+
 async function fetchTCBSDirect(tickers) {
   const map = {};
   try {
-    // TCBS public API — có Access-Control-Allow-Origin: *
     const url = `https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/second-tc-price?tickers=${tickers.join(',')}`;
-    const r = await fetch(url, {signal: AbortSignal.timeout(10000)});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const data = await r.json();
+    const data = await proxyGet(url);
     for(const item of data?.data||[]) {
       const t = item.ticker; if(!t) continue;
       const ref = item.referencePrice||0;
@@ -445,18 +464,16 @@ async function fetchTCBSDirect(tickers) {
       };
     }
     console.log('TCBS OK:',Object.keys(map).length,'tickers');
-  } catch(e) { console.warn('TCBS direct fail:',e.message); }
+  } catch(e) { console.warn('TCBS fail:',e.message); }
   return map;
 }
 
 async function fetchVNDDirect(tickers) {
   const map = {};
   try {
-    const q = encodeURIComponent('code:'+tickers.join(','));
-    const url = `https://finfo-api.vndirect.com.vn/v4/stocks?sort=code&size=${tickers.length}&page=1&q=${q}&fields=code,floor,ceiling,ref,open,close,nmVolume,pctChange,pe,pb,roe,eps`;
-    const r = await fetch(url, {signal: AbortSignal.timeout(10000)});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const data = await r.json();
+    const q = 'code:'+tickers.join(',');
+    const url = `https://finfo-api.vndirect.com.vn/v4/stocks?sort=code&size=${tickers.length}&page=1&q=${encodeURIComponent(q)}&fields=code,floor,ceiling,ref,open,close,nmVolume,pctChange,pe,pb,roe,eps`;
+    const data = await proxyGet(url);
     for(const item of data?.data||[]) {
       const t = item.code; if(!t) continue;
       const ref = item.ref||0;
@@ -476,16 +493,14 @@ async function fetchVNDDirect(tickers) {
       };
     }
     console.log('VND OK:',Object.keys(map).length,'tickers');
-  } catch(e) { console.warn('VND direct fail:',e.message); }
+  } catch(e) { console.warn('VND fail:',e.message); }
   return map;
 }
 
 async function fetchIndicesDirect() {
   try {
     const url = `https://finfo-api.vndirect.com.vn/v4/indices?sort=indexId&size=10&page=1&q=indexId:VNINDEX,VN30,HNXINDEX,UPCOM`;
-    const r = await fetch(url, {signal: AbortSignal.timeout(8000)});
-    if(!r.ok) throw new Error();
-    const data = await r.json();
+    const data = await proxyGet(url);
     const out = {};
     for(const item of data?.data||[]) {
       out[item.indexId] = {
