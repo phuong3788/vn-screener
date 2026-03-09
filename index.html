@@ -762,7 +762,30 @@ async function callAI(prompt, outEl, loadEl) {
 }
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
-fetchAll();
+function loadFallback() {
+  const merged = [];
+  for(const ticker of TICKERS) {
+    const fb = FALLBACK[ticker]; if(!fb) continue;
+    const s = {
+      ticker, exchange:exOf(ticker), sector:SECTOR[ticker]||'Khác',
+      price:fb.price, change_pct:fb.change_pct, volume:fb.volume,
+      ref_price:0, high:0, low:0, ceil:0, floor_price:0,
+      pe:fb.pe, pb:fb.pb||0, roe:fb.roe, eps:fb.eps,
+      sources:'FB', source:'Fallback',
+    };
+    s.score=score(s); const sg=sig(s.score); s.signal=sg.l; s.sigCls=sg.c;
+    merged.push(s);
+  }
+  stocks=merged; render();
+  document.getElementById('rfBadge').textContent='📋 DỮ LIỆU MẪU';
+  document.getElementById('rfBadge').className='refresh-badge';
+  document.getElementById('lastUpd').textContent='Đang tải giá thực...';
+  document.getElementById('errMsg').textContent='⚠️ Hiển thị dữ liệu tham khảo, đang tải giá thực từ API...';
+  document.getElementById('errBanner').classList.add('show');
+}
+
+loadFallback();            // Hiện 55 mã ngay lập tức
+setTimeout(fetchAll, 800); // Thử fetch API thật sau 0.8s
 </script>
 </body>
 </html>
